@@ -16,7 +16,7 @@ print(spkid_list[2])
 
 # SBDB Request link: https://ssd-api.jpl.nasa.gov/sbdb.api
 
-spkid = spkid_list[2]
+spkid = spkid_list[1]
 
 req = requests.get(f'https://ssd-api.jpl.nasa.gov/sbdb.api?spk={spkid}&phys-par=1')
 
