@@ -8,7 +8,7 @@ url = 'https://ssd.jpl.nasa.gov/api/horizons.api'
 spk_filename = 'spk_file.bsp'
 
 # Define the time span:
-start_time = '2030-01-01'
+start_time = '2000-01-01'
 stop_time = '2031-01-01'
 
 # Get the requested SPK-ID from the command-line:
@@ -25,8 +25,10 @@ url += "&COMMAND='DES%3D{}%3B'&START_TIME='{}'&STOP_TIME='{}'".format(spkid, sta
 
 # Submit the API request and decode the JSON-response:
 response = requests.get(url)
+print(response)
 try:
   data = json.loads(response.text)
+  print(data)
 except ValueError:
   print("Unable to decode JSON results")
 
