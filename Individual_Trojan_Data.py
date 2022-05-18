@@ -1,7 +1,14 @@
 import csv
 name_list = []
+JDTDB = []
+calendar_date = []
+x = []
+y = []
+z = []
 
 with open('2000624_empherides.txt', newline='') as empherides:
-    spamreader = csv.reader(empherides, delimiter=' ', quotechar='|')
-    for row in spamreader:
-        print(', '.join(row))
+    reader = csv.DictReader(empherides)
+    for row in reader:
+        calendar_date.append(row['            Calendar Date (TDB)'])
+        JDTDB.append(row['            JDTDB'])
+        print(row)
