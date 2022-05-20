@@ -11,6 +11,10 @@ y = []
 z = []
 ax = plt.axes(projection="3d")
 
+# All be started from 1800-01-01
+# Step size = 60 days
+# Coordinate center = Solar System Barycenter
+
 with open('horizons_results_4_x-y.txt', newline='') as empherides:
     reader = csv.DictReader(empherides)
     for row in reader:
@@ -30,7 +34,7 @@ with open('horizons_results_4_x-y.txt', newline='') as empherides:
     yj = []
     zj = []
 
-with open('Jupiter_position_data.txt', newline='') as empherides:
+with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as empherides:
     reader = csv.DictReader(empherides)
     for row in reader:
         calendar_date.append(row['            Calendar Date (TDB)'])
@@ -48,7 +52,7 @@ xm = []
 ym = []
 zm = []
 
-with open('Mars_position_data.txt', newline='') as empherides:
+with open('Planetary_Orbital_Data/Mars_position_data.txt', newline='') as empherides:
     reader = csv.DictReader(empherides)
     for row in reader:
         calendar_date.append(row['            Calendar Date (TDB)'])
@@ -66,7 +70,7 @@ xs = []
 ys = []
 zs = []
 
-with open('Saturn_position_data.txt', newline='') as empherides:
+with open('Planetary_Orbital_Data/Saturn_position_data.txt', newline='') as empherides:
     reader = csv.DictReader(empherides)
     for row in reader:
         calendar_date.append(row['            Calendar Date (TDB)'])
@@ -79,6 +83,21 @@ with open('Saturn_position_data.txt', newline='') as empherides:
     print(ys)
     print(zs)
     ax.scatter3D(xs, ys, zs, color='blue', label='Saturn')
+
+with open('Planetary_Orbital_Data/Saturn_position_data.txt', newline='') as empherides:
+    reader = csv.DictReader(empherides)
+    for row in reader:
+        calendar_date.append(row['            Calendar Date (TDB)'])
+        JDTDB.append(row['            JDTDB'])
+        xs.append(float(row['                      X']))
+        ys.append(float(row['                      Y']))
+        zs.append(float(row['                      Z']))
+    print('Position data for Saturn:')
+    print(xs)
+    print(ys)
+    print(zs)
+    ax.scatter3D(xs, ys, zs, color='blue', label='Saturn')
+
 
 plt.title('Orbital Data of the Solar System')
 plt.legend()
