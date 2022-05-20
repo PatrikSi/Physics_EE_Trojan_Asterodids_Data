@@ -16,27 +16,12 @@ ax = plt.axes(projection="3d")
 # Step size = 60 days
 # Coordinate center = Solar System Barycenter
 
-# with open('horizons_results_4_x-y.txt', newline='') as empherides:
-#     reader = csv.DictReader(empherides)
-#     for row in reader:
-#         calendar_date.append(row['            Calendar Date (TDB)'])
-#         JDTDB.append(row['            JDTDB'])
-#         x.append(float(row['                      X']))
-#         y.append(float(row['                      Y']))
-#         z.append(float(row['                      Z']))
-#     print('Position data for Trojan Asteroid:')
-#     print(x)
-#     print(y)
-#     print(z)
-#     print(len(x))
-#     ax.scatter3D(x, y, z, color='red', label='Trojan Asteroid')
-
 # -------------------------------Position Data for Planets--------------------------------------------------------------
 
 xj = []
 yj = []
 zj = []
-t = 10 # Time to show all the objects
+t = 10  # Time to show all the objects
 # JDTDB time to de determined by JDTDB = 2378496.5 + 60t
 
 with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as empherides:
@@ -73,7 +58,6 @@ with open('Planetary_Orbital_Data/Mars_position_data.txt', newline='') as empher
     ax.scatter3D(xm[t], ym[t], zm[t], color='purple', label='Mars', s=25)
     ax.scatter3D(xm, ym, zm, color='purple', s=0.25)
 
-
 xs = []
 ys = []
 zs = []
@@ -98,7 +82,6 @@ ye = []
 ze = []
 Calendar_Date = []
 
-
 with open('Planetary_Orbital_Data/Earth_position_data.txt', newline='') as empherides:
     reader = csv.DictReader(empherides)
     for row in reader:
@@ -116,7 +99,6 @@ with open('Planetary_Orbital_Data/Earth_position_data.txt', newline='') as emphe
     print(f'Showing Positions for time {calendar_date[t]}')
     ax.scatter3D(xe[t], ye[t], ze[t], color='yellow', label='Earth', s=25)
     ax.scatter3D(xe, ye, ze, color='yellow', s=0.25)
-
 
 # ------------------------------------------------Collecting SPKID from Horizons Index---------------------------------
 
@@ -137,8 +119,33 @@ print(low_e)
 print(len(low_e))
 print(len(spkid_list))
 
+
+def trojan_plot(spkid, t):
+    x = []
+    y = []
+    z = []
+    with open(f'Asteroid_Orbital_Data/{spkid}.txt', newline='') as empherides:
+        reader = csv.DictReader(empherides)
+        for row in reader:
+            calendar_date.append(row['            Calendar Date (TDB)'])
+            JDTDB.append(row['            JDTDB'])
+            x.append(float(row['                      X']))
+            y.append(float(row['                      Y']))
+            z.append(float(row['                      Z']))
+        print('Position data for Trojan Asteroid:')
+        print(x)
+        print(y)
+        print(z)
+        print(len(x))
+        ax.scatter3D(x, y, z, color='red', size=0.1)
+        ax.scatter3D(x[t], y[t], z[t], color='red', size=10)
+
+
 trojan_list = [2000624, 2000911, 2001437, 2001583, 2001647,
                2001867, 2001869]
+
+for spkid in trojan_list:
+    trojan_plot(spkid, t)
 
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
 plt.legend()
