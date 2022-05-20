@@ -24,7 +24,7 @@ with open('horizons_results_4_x-y.txt', newline='') as empherides:
     print(y)
     print(z)
     print(len(x))
-    ax.scatter3D(x, y, z, color='red')
+    ax.scatter3D(x, y, z, color='red', label='Trojan Asteroid')
 
     xj = []
     yj = []
@@ -42,7 +42,7 @@ with open('Jupiter_position_data.txt', newline='') as empherides:
     print(xj)
     print(yj)
     print(zj)
-    ax.scatter3D(xj, yj, zj, color='orange')
+    ax.scatter3D(xj, yj, zj, color='orange', label='Jupiter')
 
 xm = []
 ym = []
@@ -78,7 +78,8 @@ with open('Saturn_position_data.txt', newline='') as empherides:
     print(xs)
     print(ys)
     print(zs)
-    ax.scatter3D(xs, ys, zs, color='blue', label='Mars')
+    ax.scatter3D(xs, ys, zs, color='blue', label='Saturn')
 
-plt.title('Scatter')
+plt.title('Orbital Data of the Solar System')
+plt.legend()
 plt.show()
