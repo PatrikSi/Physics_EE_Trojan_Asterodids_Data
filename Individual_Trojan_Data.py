@@ -120,7 +120,10 @@ print(len(low_e))
 print(len(spkid_list))
 
 
-def trojan_plot(spkid, t):
+trojan_list = [2000624, 2000911, 2001437, 2001583, 2001647,
+               2001867, 2001869]
+
+for spkid in trojan_list:
     x = []
     y = []
     z = []
@@ -137,15 +140,8 @@ def trojan_plot(spkid, t):
         print(y)
         print(z)
         print(len(x))
-        ax.scatter3D(x, y, z, color='red', size=0.1)
-        ax.scatter3D(x[t], y[t], z[t], color='red', size=10)
-
-
-trojan_list = [2000624, 2000911, 2001437, 2001583, 2001647,
-               2001867, 2001869]
-
-for spkid in trojan_list:
-    trojan_plot(spkid, t)
+        ax.scatter3D(x, y, z, color='black', s=0.01)
+        ax.scatter3D(x[t], y[t], z[t], color='black', s=10)
 
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
 plt.legend()
