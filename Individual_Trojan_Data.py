@@ -84,19 +84,24 @@ with open('Planetary_Orbital_Data/Saturn_position_data.txt', newline='') as emph
     print(zs)
     ax.scatter3D(xs, ys, zs, color='blue', label='Saturn')
 
-with open('Planetary_Orbital_Data/Saturn_position_data.txt', newline='') as empherides:
+xe = []
+ye = []
+ze = []
+
+
+with open('Planetary_Orbital_Data/Earth_position_data.txt', newline='') as empherides:
     reader = csv.DictReader(empherides)
     for row in reader:
         calendar_date.append(row['            Calendar Date (TDB)'])
         JDTDB.append(row['            JDTDB'])
-        xs.append(float(row['                      X']))
-        ys.append(float(row['                      Y']))
-        zs.append(float(row['                      Z']))
-    print('Position data for Saturn:')
-    print(xs)
-    print(ys)
-    print(zs)
-    ax.scatter3D(xs, ys, zs, color='blue', label='Saturn')
+        xe.append(float(row['                      X']))
+        ye.append(float(row['                      Y']))
+        ze.append(float(row['                      Z']))
+    print('Position data for Earth:')
+    print(xe)
+    print(ye)
+    print(ze)
+    ax.scatter3D(xe, ye, ze, color='yellow', label='Earth')
 
 
 plt.title('Orbital Data of the Solar System')
