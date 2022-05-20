@@ -15,24 +15,26 @@ ax = plt.axes(projection="3d")
 # Step size = 60 days
 # Coordinate center = Solar System Barycenter
 
-with open('horizons_results_4_x-y.txt', newline='') as empherides:
-    reader = csv.DictReader(empherides)
-    for row in reader:
-        calendar_date.append(row['            Calendar Date (TDB)'])
-        JDTDB.append(row['            JDTDB'])
-        x.append(float(row['                      X']))
-        y.append(float(row['                      Y']))
-        z.append(float(row['                      Z']))
-    print('Position data for Trojan Asteroid:')
-    print(x)
-    print(y)
-    print(z)
-    print(len(x))
-    ax.scatter3D(x, y, z, color='red', label='Trojan Asteroid')
+# with open('horizons_results_4_x-y.txt', newline='') as empherides:
+#     reader = csv.DictReader(empherides)
+#     for row in reader:
+#         calendar_date.append(row['            Calendar Date (TDB)'])
+#         JDTDB.append(row['            JDTDB'])
+#         x.append(float(row['                      X']))
+#         y.append(float(row['                      Y']))
+#         z.append(float(row['                      Z']))
+#     print('Position data for Trojan Asteroid:')
+#     print(x)
+#     print(y)
+#     print(z)
+#     print(len(x))
+#     ax.scatter3D(x, y, z, color='red', label='Trojan Asteroid')
 
-    xj = []
-    yj = []
-    zj = []
+# -------------------------------Position Data for Planets--------------------------------------------------------------
+
+xj = []
+yj = []
+zj = []
 
 with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as empherides:
     reader = csv.DictReader(empherides)
@@ -46,7 +48,7 @@ with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as emp
     print(xj)
     print(yj)
     print(zj)
-    ax.scatter3D(xj, yj, zj, color='orange', label='Jupiter')
+    ax.scatter3D(xj, yj, zj, color='orange', label='Jupiter', s=1)
 
 xm = []
 ym = []
@@ -64,7 +66,7 @@ with open('Planetary_Orbital_Data/Mars_position_data.txt', newline='') as empher
     print(xm)
     print(ym)
     print(zm)
-    ax.scatter3D(xm, ym, zm, color='purple', label='Mars')
+    ax.scatter3D(xm, ym, zm, color='purple', label='Mars', s=1)
 
 xs = []
 ys = []
@@ -82,7 +84,7 @@ with open('Planetary_Orbital_Data/Saturn_position_data.txt', newline='') as emph
     print(xs)
     print(ys)
     print(zs)
-    ax.scatter3D(xs, ys, zs, color='blue', label='Saturn')
+    ax.scatter3D(xs, ys, zs, color='blue', label='Saturn', s=1)
 
 xe = []
 ye = []
@@ -101,8 +103,10 @@ with open('Planetary_Orbital_Data/Earth_position_data.txt', newline='') as emphe
     print(xe)
     print(ye)
     print(ze)
-    ax.scatter3D(xe, ye, ze, color='yellow', label='Earth')
+    ax.scatter3D(xe, ye, ze, color='yellow', label='Earth', s=1)
 
+
+# ------------------------------------------------Collecting SPKID from Horizons Index---------------------------------
 
 plt.title('Orbital Data of the Solar System')
 plt.legend()

@@ -12,4 +12,4 @@ spkid_list = []
 for n in main_data['spkid'].items():
     spkid_list.append(n)
 
-print(spkid_list)
+print(spkid_list[2][1])
