@@ -62,7 +62,23 @@ with open('Mars_position_data.txt', newline='') as empherides:
     print(zm)
     ax.scatter3D(xm, ym, zm, color='purple', label='Mars')
 
+xs = []
+ys = []
+zs = []
 
+with open('Saturn_position_data.txt', newline='') as empherides:
+    reader = csv.DictReader(empherides)
+    for row in reader:
+        calendar_date.append(row['            Calendar Date (TDB)'])
+        JDTDB.append(row['            JDTDB'])
+        xs.append(float(row['                      X']))
+        ys.append(float(row['                      Y']))
+        zs.append(float(row['                      Z']))
+    print('Position data for Saturn:')
+    print(xs)
+    print(ys)
+    print(zs)
+    ax.scatter3D(xs, ys, zs, color='blue', label='Mars')
 
 plt.title('Scatter')
 plt.show()
