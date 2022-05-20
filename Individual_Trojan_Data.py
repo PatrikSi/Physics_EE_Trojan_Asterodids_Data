@@ -128,6 +128,18 @@ spkid_list = []
 for n in main_data['spkid'].items():
     spkid_list.append(n)
 
+low_e = []
+for o in main_data['e'].items():
+    if o[1] < 0.075:
+        low_e.append(o)
+
+print(low_e)
+print(len(low_e))
+print(len(spkid_list))
+
+trojan_list = [2000624, 2000911, 2001437, 2001583, 2001647,
+               2001867, 2001869]
+
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
 plt.legend()
 plt.show()
