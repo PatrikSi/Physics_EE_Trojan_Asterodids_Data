@@ -127,13 +127,17 @@ print(len(spkid_list))
 
 
 trojan_list = [2000624, 2000911, 2001437, 2001583, 2001647,
-               2001867, 2001869]
+               2001867, 2001869, 2389331, 2355776, 2187656,
+               54252384, 2335574, 2392454, 54122590, 3793796,
+               54084410, 2326123, 2569986, 3481067, 2187657,
+               54258691, 2188844, 2591781]
 
 for spkid in trojan_list:
     x = []
     y = []
     z = []
     with open(f'Asteroid_Orbital_Data/{spkid}.txt', newline='') as empherides:
+        print(f'Going through {spkid}')
         reader = csv.DictReader(empherides)
         for row in reader:
             calendar_date.append(row['            Calendar Date (TDB)'])
