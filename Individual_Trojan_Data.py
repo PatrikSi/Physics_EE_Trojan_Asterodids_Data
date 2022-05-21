@@ -100,6 +100,27 @@ with open('Planetary_Orbital_Data/Earth_position_data.txt', newline='') as emphe
     ax.scatter3D(xe[t], ye[t], ze[t], color='yellow', label='Earth', s=25)
     ax.scatter3D(xe, ye, ze, color='yellow', s=0.25)
 
+
+xv = []
+yv = []
+zv = []
+
+with open('Planetary_Orbital_Data/Venus_position_data.txt', newline='') as empherides:
+    reader = csv.DictReader(empherides)
+    for row in reader:
+        calendar_date.append(row['            Calendar Date (TDB)'])
+        JDTDB.append(row['            JDTDB'])
+        xv.append(float(row['                      X']))
+        yv.append(float(row['                      Y']))
+        zv.append(float(row['                      Z']))
+    print('Position data for Saturn:')
+    print(xv)
+    print(yv)
+    print(zv)
+    ax.scatter3D(xv[t], yv[t], zv[t], color='pink', label='Venus', s=25)
+    ax.scatter3D(xv, yv, zv, color='pink', s=0.25)
+
+
 # ------------------------------------------------Collecting SPKID from Horizons Index---------------------------------
 
 df = pd.read_csv('Trojan_Asteroid_JPLQuery.csv')
