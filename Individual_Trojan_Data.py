@@ -21,7 +21,7 @@ ax = plt.axes(projection="3d")
 xj = []
 yj = []
 zj = []
-t = 10  # Time to show all the objects
+t = 20  # Time to show all the objects
 # JDTDB time to de determined by JDTDB = 2378496.5 + 60t
 
 with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as empherides:
@@ -150,8 +150,8 @@ for spkid in trojan_list:
         print(y)
         print(z)
         print(len(x))
-        ax.scatter3D(x, y, z, color='black', s=0.01)
-        ax.scatter3D(x[t], y[t], z[t], color='black', s=10)
+        ax.scatter3D(x, y, z, color='black', s=0.001)
+        ax.scatter3D(x[t], y[t], z[t], color='black', s=3)
 
 
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
