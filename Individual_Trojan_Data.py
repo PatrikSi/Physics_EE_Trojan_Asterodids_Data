@@ -156,8 +156,8 @@ for spkid in trojan_list:
         print(y)
         print(z)
         print(len(x))
-        #ax.scatter3D(x, y, z, color='black', s=0.001)
-        ax.scatter3D(x[t], y[t], z[t], color='black', s=3)
+        ax.scatter3D(x, y, z, color='grey', s=0.001)
+        ax.scatter3D(x[t], y[t], z[t], color='red', s=3)
 
 
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
