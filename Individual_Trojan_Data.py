@@ -140,6 +140,29 @@ with open('Planetary_Orbital_Data/Mercury_position_data.txt', newline='') as emp
     ax.scatter3D(xr, yr, zr, color='red', s=0.25)
 
 
+xsu = []
+ysu = []
+zsu = []
+
+with open('Planetary_Orbital_Data/Sun_position_data.txt', newline='') as empherides:
+    reader = csv.DictReader(empherides)
+    for row in reader:
+        calendar_date.append(row['            Calendar Date (TDB)'])
+        JDTDB.append(row['            JDTDB'])
+        xsu.append(float(row['                      X']))
+        ysu.append(float(row['                      Y']))
+        zsu.append(float(row['                      Z']))
+    print('Position data for Saturn:')
+    print(xsu)
+    print(ysu)
+    print(zsu)
+    ax.scatter3D(xsu[t], ysu[t], zsu[t], color='yellow', label='Sun', s=25)
+    ax.scatter3D(xsu, ysu, zsu, color='yellow', s=0.25)
+
+# Barycenter position
+ax.scatter3D(0, 0, 0, color='black', s=2, label='Barycenter')
+
+
 # ------------------------------------------------Collecting SPKID from Horizons Index---------------------------------
 
 df = pd.read_csv('Trojan_Asteroid_JPLQuery.csv')
