@@ -111,11 +111,17 @@ for n in main_data['spkid'].items():
     spkid_list.append(n)
 
 low_e = []
+low_i = []
 for o in main_data['e'].items():
     if o[1] < 0.075:
-        low_e.append(o)
+        low_e.append(spkid_list[o[0]])
 
-print(low_e)
+for o in main_data['i'].items():
+    if o[1] < 10:
+        low_i.append(spkid_list[o[0]])
+
+
+print(low_i)
 print(len(low_e))
 print(len(spkid_list))
 
@@ -143,6 +149,21 @@ for spkid in trojan_list:
         ax.scatter3D(x, y, z, color='black', s=0.01)
         ax.scatter3D(x[t], y[t], z[t], color='black', s=10)
 
+
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
 plt.legend()
 plt.show()
+
+print(low_i)
+print(low_e[2][1])
+
+low_e_i = list(set(low_e).intersection(low_i))
+
+print(low_e_i)
+
+trojans = []
+
+for n in low_e_i:
+    trojans.append(n[1])
+
+print(trojans)
