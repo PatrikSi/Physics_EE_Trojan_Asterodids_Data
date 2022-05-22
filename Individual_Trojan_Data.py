@@ -240,6 +240,7 @@ ax.scatter3D(xsu[t], ysu[t], zsu[t], color='yellow', label='Sun', s=25)
 
 
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
+ax.view_init(elev=70, azim=-80)
 plt.legend()
 plt.show()
 
