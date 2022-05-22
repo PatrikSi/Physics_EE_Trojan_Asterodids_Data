@@ -74,7 +74,7 @@ with open('Planetary_Orbital_Data/Saturn_position_data.txt', newline='') as emph
     print(ys)
     print(zs)
     # ax.scatter3D(xs[t], ys[t], zs[t], color='blue', label='Saturn', s=25)
-    ax.scatter3D(xs, ys, zs, color='blue', s=0.25)
+    # ax.scatter3D(xs, ys, zs, color='blue', s=0.25)
 
 xe = []
 ye = []
@@ -232,7 +232,7 @@ for spkid in trojan_list:
 
 ax.scatter3D(xj[t], yj[t], zj[t], color='orange', label='Jupiter', s=25)
 ax.scatter3D(xm[t], ym[t], zm[t], color='purple', label='Mars', s=25)
-ax.scatter3D(xs[t], ys[t], zs[t], color='blue', label='Saturn', s=25)
+# ax.scatter3D(xs[t], ys[t], zs[t], color='blue', label='Saturn', s=25)
 ax.scatter3D(xe[t], ye[t], ze[t], color='yellow', label='Earth', s=25)
 ax.scatter3D(xv[t], yv[t], zv[t], color='pink', label='Venus', s=25)
 ax.scatter3D(xr[t], yr[t], zr[t], color='red', label='Mercury', s=25)
