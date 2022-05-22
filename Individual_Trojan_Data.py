@@ -36,7 +36,7 @@ with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as emp
     print(xj)
     print(yj)
     print(zj)
-    ax.scatter3D(xj[t], yj[t], zj[t], color='orange', label='Jupiter', s=25)
+    # ax.scatter3D(xj[t], yj[t], zj[t], color='orange', label='Jupiter', s=25)
     ax.scatter3D(xj, yj, zj, color='orange', s=0.25)
 
 xm = []
@@ -55,7 +55,7 @@ with open('Planetary_Orbital_Data/Mars_position_data.txt', newline='') as empher
     print(xm)
     print(ym)
     print(zm)
-    ax.scatter3D(xm[t], ym[t], zm[t], color='purple', label='Mars', s=25)
+    # ax.scatter3D(xm[t], ym[t], zm[t], color='purple', label='Mars', s=25)
     ax.scatter3D(xm, ym, zm, color='purple', s=0.25)
 
 xs = []
@@ -74,7 +74,7 @@ with open('Planetary_Orbital_Data/Saturn_position_data.txt', newline='') as emph
     print(xs)
     print(ys)
     print(zs)
-    ax.scatter3D(xs[t], ys[t], zs[t], color='blue', label='Saturn', s=25)
+    # ax.scatter3D(xs[t], ys[t], zs[t], color='blue', label='Saturn', s=25)
     ax.scatter3D(xs, ys, zs, color='blue', s=0.25)
 
 xe = []
@@ -97,7 +97,7 @@ with open('Planetary_Orbital_Data/Earth_position_data.txt', newline='') as emphe
     print(ye)
     print(ze)
     print(f'Showing Positions for time {calendar_date[t]}')
-    ax.scatter3D(xe[t], ye[t], ze[t], color='yellow', label='Earth', s=25)
+    # ax.scatter3D(xe[t], ye[t], ze[t], color='yellow', label='Earth', s=25)
     ax.scatter3D(xe, ye, ze, color='yellow', s=0.25)
 
 
@@ -117,7 +117,7 @@ with open('Planetary_Orbital_Data/Venus_position_data.txt', newline='') as emphe
     print(xv)
     print(yv)
     print(zv)
-    ax.scatter3D(xv[t], yv[t], zv[t], color='pink', label='Venus', s=25)
+    # ax.scatter3D(xv[t], yv[t], zv[t], color='pink', label='Venus', s=25)
     ax.scatter3D(xv, yv, zv, color='pink', s=0.25)
 
 xr = []
@@ -136,7 +136,7 @@ with open('Planetary_Orbital_Data/Mercury_position_data.txt', newline='') as emp
     print(xr)
     print(yr)
     print(zr)
-    ax.scatter3D(xr[t], yr[t], zr[t], color='red', label='Mercury', s=25)
+    # ax.scatter3D(xr[t], yr[t], zr[t], color='red', label='Mercury', s=25)
     ax.scatter3D(xr, yr, zr, color='red', s=0.25)
 
 
@@ -156,7 +156,7 @@ with open('Planetary_Orbital_Data/Sun_position_data.txt', newline='') as empheri
     print(xsu)
     print(ysu)
     print(zsu)
-    ax.scatter3D(xsu[t], ysu[t], zsu[t], color='yellow', label='Sun', s=25)
+    # ax.scatter3D(xsu[t], ysu[t], zsu[t], color='yellow', label='Sun', s=25)
     ax.scatter3D(xsu, ysu, zsu, color='yellow', s=0.25)
 
 # Barycenter position
@@ -221,6 +221,15 @@ for spkid in trojan_list:
         print(len(x))
         ax.scatter3D(x, y, z, color='grey', s=0.001)
         ax.scatter3D(x[t], y[t], z[t], color='red', s=3)
+
+
+ax.scatter3D(xj[t], yj[t], zj[t], color='orange', label='Jupiter', s=25)
+ax.scatter3D(xm[t], ym[t], zm[t], color='purple', label='Mars', s=25)
+ax.scatter3D(xs[t], ys[t], zs[t], color='blue', label='Saturn', s=25)
+ax.scatter3D(xe[t], ye[t], ze[t], color='yellow', label='Earth', s=25)
+ax.scatter3D(xv[t], yv[t], zv[t], color='pink', label='Venus', s=25)
+ax.scatter3D(xr[t], yr[t], zr[t], color='red', label='Mercury', s=25)
+ax.scatter3D(xsu[t], ysu[t], zsu[t], color='yellow', label='Sun', s=25)
 
 
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
