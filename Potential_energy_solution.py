@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-mu = 0.1
+mu = 0.0953
 R = 1
 sun_pos = np.array([-mu*R, 0])
 earth_pos = np.array([(1-mu)*R, 0])
