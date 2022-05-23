@@ -216,7 +216,7 @@ for spkid in trojan_list:
         print(y)
         print(z)
         print(len(x))
-        ax.scatter3D(x, y, z, color='grey', s=0.001)
+        # ax.scatter3D(x, y, z, color='grey', s=0.001)
         ax.scatter3D(x[t], y[t], z[t], color='red', s=3)
 
 # ---------------------------------------------plotting-----------------------------------------------------------------
