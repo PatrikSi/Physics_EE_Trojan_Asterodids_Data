@@ -241,8 +241,8 @@ def trojan_average_positon():
     print(f'The average position of trojans in L5 is [{L5avgx}, {L5avgy}, {L5avgz}]')
     print(f'Jupiter position is [{xj[t]}, {yj[t]}, {zj[t]}]')
 
-    ax.plot(L4avgx, L4avgy, L4avgz, marker='x', markersize=20, color='blue', label='L4')
-    ax.plot(L5avgx, L5avgy, L5avgz, marker='x', markersize=20, color='blue', label='L5')
+    ax.plot(L4avgx, L4avgy, L4avgz, marker='x', markersize=10, color='blue', label='L4')
+    ax.plot(L5avgx, L5avgy, L5avgz, marker='x', markersize=10, color='blue', label='L5')
 
     L4v = [L4avgx, L4avgy, L4avgz]
     L5v = [L5avgx, L5avgy, L5avgz]
@@ -263,7 +263,7 @@ def trojan_average_positon():
     L4_angle = angle(L4v_u, Jupv_u)
     L5_angle = angle(L5v_u, Jupv_u)
 
-    print(f'The angle for L4 is: {L4_angle}. And the angle for L5 is {L5_angle}')
+    print(f'The angle for L4 is: {L4_angle} degrees. And the angle for L5 is {L5_angle} degrees')
 
 
 trojan_average_positon()
@@ -296,16 +296,17 @@ ax.view_init(elev=70, azim=-80)
 plt.legend()
 plt.show()
 
-print(low_i)
-print(low_e[2][1])
 
-low_e_i = list(set(low_e).intersection(low_i))
-
-print(low_e_i)
-
-trojans = []
-
-for n in low_e_i:
-    trojans.append(n[1])
-
-print(trojans)
+# print(low_i)
+# print(low_e[2][1])
+#
+# low_e_i = list(set(low_e).intersection(low_i))
+#
+# print(low_e_i)
+#
+# trojans = []
+#
+# for n in low_e_i:
+#     trojans.append(n[1])
+#
+# print(trojans)
