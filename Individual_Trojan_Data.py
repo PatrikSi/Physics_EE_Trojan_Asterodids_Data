@@ -1,5 +1,6 @@
 import csv
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import pandas as pd
 
@@ -36,7 +37,6 @@ with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as emp
     print(yj)
     print(zj)
 
-
 xm = []
 ym = []
 zm = []
@@ -54,7 +54,6 @@ with open('Planetary_Orbital_Data/Mars_position_data.txt', newline='') as empher
     print(ym)
     print(zm)
 
-
 xs = []
 ys = []
 zs = []
@@ -71,7 +70,6 @@ with open('Planetary_Orbital_Data/Saturn_position_data.txt', newline='') as emph
     print(xs)
     print(ys)
     print(zs)
-
 
 xe = []
 ye = []
@@ -94,7 +92,6 @@ with open('Planetary_Orbital_Data/Earth_position_data.txt', newline='') as emphe
     print(ze)
     print(f'Showing Positions for time {calendar_date[t]}')
 
-
 xv = []
 yv = []
 zv = []
@@ -112,7 +109,6 @@ with open('Planetary_Orbital_Data/Venus_position_data.txt', newline='') as emphe
     print(yv)
     print(zv)
 
-
 xr = []
 yr = []
 zr = []
@@ -129,7 +125,6 @@ with open('Planetary_Orbital_Data/Mercury_position_data.txt', newline='') as emp
     print(xr)
     print(yr)
     print(zr)
-
 
 xsu = []
 ysu = []
@@ -151,7 +146,6 @@ with open('Planetary_Orbital_Data/Sun_position_data.txt', newline='') as empheri
 # Barycenter position
 ax.scatter3D(0, 0, 0, color='black', s=2, label='Barycenter')
 
-
 # ------------------------------------------------Collecting SPKID from Horizons Index---------------------------------
 
 df = pd.read_csv('Trojan_Asteroid_JPLQuery.csv')
@@ -172,11 +166,9 @@ for o in main_data['i'].items():
     if o[1] < 10:
         low_i.append(spkid_list[o[0]])
 
-
 print(low_i)
 print(len(low_e))
 print(len(spkid_list))
-
 
 trojan_list = [2000624, 2000911, 2001437, 2001583, 2001647,
                2001867, 2001869, 2389331, 2355776, 2187656,
@@ -198,6 +190,14 @@ trojan_list = [2000624, 2000911, 2001437, 2001583, 2001647,
                2456110, 2222862, 2392700, 2285236, 2576430,
                2182541]
 
+troj4_x = []
+troj4_y = []
+troj4_z = []
+
+troj5_x = []
+troj5_y = []
+troj5_z = []
+
 for spkid in trojan_list:
     x = []
     y = []
@@ -218,6 +218,36 @@ for spkid in trojan_list:
         print(len(x))
         ax.scatter3D(x, y, z, color='grey', s=0.001)
         ax.scatter3D(x[t], y[t], z[t], color='red', s=3)
+        if y[t] < 0:
+            troj4_x.append(x[t])
+            troj4_y.append(y[t])
+            troj4_z.append(z[t])
+        else:
+            troj5_x.append(x[t])
+            troj5_y.append(y[t])
+            troj5_z.append(z[t])
+
+
+def trojan_average_positon():
+    L4avgx = sum(troj4_x) / len(troj4_x)
+    L4avgy = sum(troj4_y) / len(troj4_y)
+    L4avgz = sum(troj4_z) / len(troj4_z)
+
+    L5avgx = sum(troj5_x) / len(troj5_x)
+    L5avgy = sum(troj5_y) / len(troj5_y)
+    L5avgz = sum(troj5_z) / len(troj5_z)
+
+    print(f'The average position of trojans in L4 is [{L4avgx}, {L4avgy}, {L4avgz}]')
+    print(f'The average position of trojans in L5 is [{L5avgx}, {L5avgy}, {L5avgz}]')
+    print(f'Jupiter position is [{xj[t]}, {yj[t]}, {zj[t]}]')
+
+    # vectors = np.array([[0, 0, 0, L4avgx, L5avgx, xj[t]], [0, 0, 0, L4avgy, L5avgy, yj[t]], [0, 0, 0, L4avgz, L5avgz, zj[t]]])
+    #
+    # X, Y, Z, L4, L5, Jup = zip(*vectors)
+    # ax.quiver(X, y, Z, L4, L5, Jup)
+
+
+trojan_average_positon()
 
 # ---------------------------------------------plotting-----------------------------------------------------------------
 
@@ -227,8 +257,8 @@ ax.scatter3D(xj, yj, zj, color='orange', s=0.25)
 ax.scatter3D(xm[t], ym[t], zm[t], color='purple', label='Mars', s=25)
 ax.scatter3D(xm, ym, zm, color='purple', s=0.25)
 
-ax.scatter3D(xs[t], ys[t], zs[t], color='blue', label='Saturn', s=25)
-ax.scatter3D(xs, ys, zs, color='blue', s=0.25)
+# ax.scatter3D(xs[t], ys[t], zs[t], color='blue', label='Saturn', s=25)
+# ax.scatter3D(xs, ys, zs, color='blue', s=0.25)
 
 ax.scatter3D(xe[t], ye[t], ze[t], color='yellow', label='Earth', s=25)
 ax.scatter3D(xe, ye, ze, color='yellow', s=0.25)
@@ -241,7 +271,6 @@ ax.scatter3D(xr, yr, zr, color='red', s=0.25)
 
 ax.scatter3D(xsu[t], ysu[t], zsu[t], color='yellow', label='Sun', s=25)
 ax.scatter3D(xsu, ysu, zsu, color='yellow', s=0.25)
-
 
 plt.title(f'Orbital Data of the Solar System at time {calendar_date[t][:18]}')
 ax.view_init(elev=70, azim=-80)
