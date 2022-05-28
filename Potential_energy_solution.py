@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import cm
 
 mu = 0.0953
 R = 1
@@ -17,10 +18,11 @@ u = term1 + term2 + term3
 
 plt.figure(figsize=(5, 5))
 levels = np.linspace(-1.8, -1.4, 50)
-plt.contour(x, y, u, levels=levels)
+plt.contour(x, y, u, levels=levels, cmap=cm.jet)
 plt.scatter([sun_pos[0]], [sun_pos[1]], c='y', s=50, label='Sun')
 plt.scatter([earth_pos[0]], [earth_pos[1]], c='b', s=30, label='Jupiter')
 plt.scatter([0], [0], c='black', marker='x')
 plt.axis('equal')
 plt.legend()
+plt.colorbar()
 plt.show()
