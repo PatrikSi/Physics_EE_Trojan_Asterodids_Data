@@ -223,7 +223,7 @@ for spkid in trojan_list:
         print(y)
         print(z)
         print(len(x))
-        ax.scatter3D(x, y, z, color='grey', s=0.001)
+        # ax.scatter3D(x, y, z, color='grey', s=0.001)
         ax.scatter3D(x[t], y[t], z[t], color='red', s=3)
         if y[t] < 0:
             troj4_x.append(x[t])
@@ -248,7 +248,7 @@ def trojan_average_positon():
     print(f'The average position of trojans in L5 is [{L5avgx}, {L5avgy}, {L5avgz}]')
     print(f'Jupiter position is [{xj[t]}, {yj[t]}, {zj[t]}]')
 
-    ax.plot(L4avgx, L4avgy, L4avgz, marker='x', markersize=10, color='blue', label='L4')
+    ax.plot(L4avgx, L4avgy, L4avgz, marker='x', markersize=10, color='green', label='L4')
     ax.plot(L5avgx, L5avgy, L5avgz, marker='x', markersize=10, color='blue', label='L5')
 
     L4v = [L4avgx, L4avgy, L4avgz]
