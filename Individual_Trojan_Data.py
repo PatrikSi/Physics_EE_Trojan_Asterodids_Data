@@ -241,10 +241,29 @@ def trojan_average_positon():
     print(f'The average position of trojans in L5 is [{L5avgx}, {L5avgy}, {L5avgz}]')
     print(f'Jupiter position is [{xj[t]}, {yj[t]}, {zj[t]}]')
 
-    # vectors = np.array([[0, 0, 0, L4avgx, L5avgx, xj[t]], [0, 0, 0, L4avgy, L5avgy, yj[t]], [0, 0, 0, L4avgz, L5avgz, zj[t]]])
-    #
-    # X, Y, Z, L4, L5, Jup = zip(*vectors)
-    # ax.quiver(X, y, Z, L4, L5, Jup)
+    ax.plot(L4avgx, L4avgy, L4avgz, marker='x', markersize=20, color='blue', label='L4')
+    ax.plot(L5avgx, L5avgy, L5avgz, marker='x', markersize=20, color='blue', label='L5')
+
+    L4v = [L4avgx, L4avgy, L4avgz]
+    L5v = [L5avgx, L5avgy, L5avgz]
+    Jupv = [xj[t], yj[t], zj[t]]
+
+    def unit_vector(vec):
+        return vec/np.linalg.norm(vec)
+
+    L4v_u = unit_vector(L4v)
+    L5v_u = unit_vector(L5v)
+    Jupv_u = unit_vector(Jupv)
+
+    def angle(vec1, vec2):
+        dot = np.dot(vec1, vec2)
+        ang = np.arccos(dot)
+        return np.degrees(ang)
+
+    L4_angle = angle(L4v_u, Jupv_u)
+    L5_angle = angle(L5v_u, Jupv_u)
+
+    print(f'The angle for L4 is: {L4_angle}. And the angle for L5 is {L5_angle}')
 
 
 trojan_average_positon()
