@@ -244,6 +244,7 @@ def trojan_average_positon():
     L5avgy = sum(troj5_y) / len(troj5_y)
     L5avgz = sum(troj5_z) / len(troj5_z)
 
+    print(f'Trojans in L4: {len(troj4_x)}. Trojans in L5: {len(troj5_x)}')
     print(f'The average position of trojans in L4 is [{L4avgx}, {L4avgy}, {L4avgz}]')
     print(f'The average position of trojans in L5 is [{L5avgx}, {L5avgy}, {L5avgz}]')
     print(f'Jupiter position is [{xj[t]}, {yj[t]}, {zj[t]}]')
