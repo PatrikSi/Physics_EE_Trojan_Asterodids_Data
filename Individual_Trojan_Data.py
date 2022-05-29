@@ -144,7 +144,7 @@ with open('Planetary_Orbital_Data/Sun_position_data.txt', newline='') as empheri
     print(zsu)
 
 # Barycenter position
-ax.scatter3D(0, 0, 0, color='black', s=2, label='Barycenter')
+ax.scatter3D(0, 0, 0, color='black', s=10, marker='o', label='Barycenter')
 
 # ------------------------------------------------Collecting SPKID from Horizons Index---------------------------------
 
