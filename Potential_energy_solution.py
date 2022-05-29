@@ -2,7 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 
-mu = 0.0953
+M_s = 1988500*10**24
+M_j = 1898*10**24
+
+mu = (M_j/M_s)*10**2
 R = 1
 sun_pos = np.array([-mu*R, 0])
 earth_pos = np.array([(1-mu)*R, 0])
