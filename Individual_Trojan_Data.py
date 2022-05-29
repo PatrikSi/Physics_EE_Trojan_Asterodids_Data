@@ -148,27 +148,27 @@ ax.scatter3D(0, 0, 0, color='black', s=10, marker='o', label='Barycenter')
 
 # ------------------------------------------------Collecting SPKID from Horizons Index---------------------------------
 
-df = pd.read_csv('Trojan_Asteroid_JPLQuery.csv')
-main_data = df.to_dict()
-
-spkid_list = []
-
-for n in main_data['spkid'].items():
-    spkid_list.append(n)
-
-low_e = []
-low_i = []
-for o in main_data['e'].items():
-    if o[1] < 0.075:
-        low_e.append(spkid_list[o[0]])
-
-for o in main_data['i'].items():
-    if o[1] < 10:
-        low_i.append(spkid_list[o[0]])
-
-print(low_i)
-print(len(low_e))
-print(len(spkid_list))
+# df = pd.read_csv('Trojan_Asteroid_JPLQuery.csv')
+# main_data = df.to_dict()
+#
+# spkid_list = []
+#
+# for n in main_data['spkid'].items():
+#     spkid_list.append(n)
+#
+# low_e = []
+# low_i = []
+# for o in main_data['e'].items():
+#     if o[1] < 0.075:
+#         low_e.append(spkid_list[o[0]])
+#
+# for o in main_data['i'].items():
+#     if o[1] < 10:
+#         low_i.append(spkid_list[o[0]])
+#
+# print(low_i)
+# print(len(low_e))
+# print(len(spkid_list))
 
 trojan_list = [2000624, 2000911, 2001437, 2001583, 2001647,
                2001867, 2001869, 2389331, 2355776, 2187656,
