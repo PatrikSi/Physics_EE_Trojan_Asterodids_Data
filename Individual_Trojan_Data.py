@@ -252,6 +252,13 @@ def trojan_average_positon():
     ax.plot(L4avgx, L4avgy, L4avgz, marker='x', markersize=10, color='green', label='L4')
     ax.plot(L5avgx, L5avgy, L5avgz, marker='x', markersize=10, color='blue', label='L5')
 
+    ax.plot([L4avgx, 0], [L4avgy, 0], [L4avgz, 0], linestyle='--')
+    ax.plot([L5avgx, 0], [L5avgy, 0], [L5avgz, 0], linestyle='--')
+    ax.plot([xj[t], 0], [yj[t], 0], [zj[t], 0], linestyle='--')
+    ax.plot([xj[t], L4avgx], [yj[t], L4avgy], [zj[t], L4avgz], linestyle='--')
+    ax.plot([xj[t], L5avgx], [yj[t], L5avgy], [zj[t], L5avgz], linestyle='--')
+
+
     L4v = [L4avgx, L4avgy, L4avgz]
     L5v = [L5avgx, L5avgy, L5avgz]
     Jupv = [xj[t], yj[t], zj[t]]
