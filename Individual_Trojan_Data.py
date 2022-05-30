@@ -237,8 +237,8 @@ for spkid in trojan_list:
         print(y)
         print(z)
         print(len(x))
-        ax.scatter3D(x, y, z, color='grey', s=0.001)
-        ax.scatter3D(x[t], y[t], z[t], color='red', s=3)
+        ax.scatter3D(x, y, z, color='grey', s=0.00001)
+        ax.scatter3D(x[t], y[t], z[t], color='red', s=1)
         if y[t] < 0:
             troj4_x.append(x[t])
             troj4_y.append(y[t])
