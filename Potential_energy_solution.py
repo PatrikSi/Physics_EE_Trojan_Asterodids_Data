@@ -21,7 +21,7 @@ term3 = -0.5 * (x**2 + y**2)
 u = term1 + term2 + term3
 
 plt.figure(figsize=(5, 5))
-levels = np.linspace(-1.8, -1.4, 50)
+levels = np.linspace(-3, -0.5, 200)
 plt.contour(x, y, u, levels=levels, cmap=cm.jet)
 plt.scatter([sun_pos[0]], [sun_pos[1]], c='y', s=50, label='Sun')
 plt.scatter([earth_pos[0]], [earth_pos[1]], c='b', s=30, label='Jupiter')
