@@ -216,6 +216,9 @@ troj5_x = []
 troj5_y = []
 troj5_z = []
 
+L4 = []
+L5 = []
+
 for spkid in trojan_list:
     x = []
     y = []
@@ -240,10 +243,12 @@ for spkid in trojan_list:
             troj4_x.append(x[t])
             troj4_y.append(y[t])
             troj4_z.append(z[t])
+            L4.append(spkid)
         else:
             troj5_x.append(x[t])
             troj5_y.append(y[t])
             troj5_z.append(z[t])
+            L5.append(spkid)
 
 
 def trojan_average_positon():
@@ -255,6 +260,8 @@ def trojan_average_positon():
     L5avgy = sum(troj5_y) / len(troj5_y)
     L5avgz = sum(troj5_z) / len(troj5_z)
 
+    print(f'L4 Trojans: {L4}')
+    print(f'L5 Trojans: {L5}')
     print(f'Trojans in L4: {len(troj4_x)}. Trojans in L5: {len(troj5_x)}')
     print(f'The average position of trojans in L4 is [{L4avgx}, {L4avgy}, {L4avgz}]')
     print(f'The average position of trojans in L5 is [{L5avgx}, {L5avgy}, {L5avgz}]')
