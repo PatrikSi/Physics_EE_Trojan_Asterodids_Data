@@ -219,6 +219,10 @@ troj5_z = []
 L4 = []
 L5 = []
 
+xs = []
+ys = []
+zs = []
+
 for spkid in trojan_list:
     x = []
     y = []
@@ -232,6 +236,13 @@ for spkid in trojan_list:
             x.append(float(row['                      X']))
             y.append(float(row['                      Y']))
             z.append(float(row['                      Z']))
+            # try:
+            #     xs.append(float(row['             X_s'])/float(row['                      X']))
+            #     ys.append(float(row['             Y_s'])/float(row['                      Y']))
+            #     zs.append(float(row['             Z_s'])/float(row['                      Z']))
+            # except KeyError:
+            #     print('Missing uncertainty')
+
         print('Position data for Trojan Asteroid:')
         print(x)
         print(y)
@@ -260,8 +271,13 @@ def trojan_average_positon():
     L5avgy = sum(troj5_y) / len(troj5_y)
     L5avgz = sum(troj5_z) / len(troj5_z)
 
+    # avgxs = sum(xs)/len(xs)
+    # avgys = sum(ys)/len(ys)
+    # avgzs = sum(zs)/len(zs)
+
     print(f'L4 Trojans: {L4}')
     print(f'L5 Trojans: {L5}')
+    # print(f'Average position uncertainty in trojan positions (km): [{avgxs}, {avgys}, {avgzs}]')
     print(f'Trojans in L4: {len(troj4_x)}. Trojans in L5: {len(troj5_x)}')
     print(f'The average position of trojans in L4 is [{L4avgx}, {L4avgy}, {L4avgz}]')
     print(f'The average position of trojans in L5 is [{L5avgx}, {L5avgy}, {L5avgz}]')
