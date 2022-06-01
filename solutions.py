@@ -25,9 +25,7 @@ javgx = (sum(xj)/len(xj))*10**3
 javgy = (sum(yj)/len(yj))*10**3
 javgz = (sum(zj)/len(zj))*10**3
 
-rja = np.sqrt((javgx)**2 +(javgy)**2 + (javgz)**2)
-
-print(rja)
+r_j = np.sqrt((javgx)**2 +(javgy)**2 + (javgz)**2)
 
 xsu = []
 ysu = []
@@ -50,17 +48,13 @@ savgx = sum(xsu)/len(xsu)
 savgy = sum(ysu)/len(ysu)
 savgz = sum(zsu)/len(zsu)
 
-rsa = np.sqrt((savgx)**2 +(savgy)**2 + (savgz)**2)
+r_s = np.sqrt((savgx)**2 +(savgy)**2 + (savgz)**2)
 
-print(rja)
-print(rsa)
 
 G = 6.67*10**-11
 
 M_s = 1988500*10**24
 M_j = 1898*10**24
 
-# orbital radius in meters
-r_s = ""
-r_j = 778.5*10**9
-print(r_j)
+print(f'Mean Orbital Radius of Jupiter is: {r_j} m')
+print(f'Mean Orbital Radius of sun is : {r_s} m')
