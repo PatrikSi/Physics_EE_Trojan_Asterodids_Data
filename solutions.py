@@ -27,6 +27,7 @@ javgz = (sum(zj)/len(zj))*10**3
 
 r_j = np.sqrt((javgx)**2 +(javgy)**2 + (javgz)**2)
 
+
 xsu = []
 ysu = []
 zsu = []
@@ -48,23 +49,26 @@ savgx = sum(xsu)/len(xsu)
 savgy = sum(ysu)/len(ysu)
 savgz = sum(zsu)/len(zsu)
 
-r_s = np.sqrt((savgx)**2 +(savgy)**2 + (savgz)**2)
-
+r_s = -np.sqrt((savgx)**2 +(savgy)**2 + (savgz)**2)
 
 G = 6.67*10**-11
 
 M_s = 1988500*10**24
 M_j = 1898*10**24
+
 print('Solar System Barycenter reference frame')
 print(f'Mean Orbital Radius of Jupiter is: {r_j} m')
 print(f'Mean Orbital Radius of sun is : {r_s} m')
 
-x = np.linspace(0, 10000000, 100)
+x = np.linspace(1, r_j-100, 100000)
+
+R = r_j + r_s
 
 eq1_l1 = (M_s/((r_s+x)**2)) - (M_j/((r_j-x)**2))
-eq2_l1 = (M_s*x)/(((r_s+r_j)**2)*r_j)
+eq2_l1 = (M_j*x)/((r_s)*R**2)
 
 fig = plt.figure()
 plt.plot(x, eq1_l1, 'red')
 plt.plot(x, eq2_l1, 'blue')
+# plt.plot(x, x**2, 'orange')
 plt.show()
