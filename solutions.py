@@ -55,6 +55,16 @@ G = 6.67*10**-11
 
 M_s = 1988500*10**24
 M_j = 1898*10**24
-
+print('Solar System Barycenter reference frame')
 print(f'Mean Orbital Radius of Jupiter is: {r_j} m')
 print(f'Mean Orbital Radius of sun is : {r_s} m')
+
+x = np.linspace(0, 10000000, 100)
+
+eq1_l1 = (M_s/((r_s+x)**2)) - (M_j/((r_j-x)**2))
+eq2_l1 = (M_s*x)/(((r_s+r_j)**2)*r_j)
+
+fig = plt.figure()
+plt.plot(x, eq1_l1, 'red')
+plt.plot(x, eq2_l1, 'blue')
+plt.show()
