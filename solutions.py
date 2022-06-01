@@ -56,7 +56,7 @@ G = 6.67*10**-11
 M_s = 1988500*10**24
 M_j = 1898*10**24
 
-print('Solar System Barycenter reference frame')
+print('Solar System Barycenter reference frame.')
 print(f'Mean Orbital Radius of Jupiter is: {r_j} m')
 print(f'Mean Orbital Radius of sun is : {r_s} m')
 
