@@ -234,6 +234,10 @@ xs = []
 ys = []
 zs = []
 
+tx = []
+ty = []
+tz = []
+
 for spkid in trojan_list:
     x = []
     y = []
@@ -258,9 +262,9 @@ for spkid in trojan_list:
         print(x)
         print(y)
         print(z)
-        print(len(x))
-        ax.scatter3D(x, y, z, color='grey', s=0.00001)
-        ax.scatter3D(x[t], y[t], z[t], color='red', s=1)
+        tx.append(x[t])
+        ty.append(y[t])
+        tz.append(z[t])
         if y[t] < 0:
             troj4_x.append(x[t])
             troj4_y.append(y[t])
@@ -350,6 +354,8 @@ ax.scatter3D(xr, yr, zr, color='red', s=0.25)
 
 ax.scatter3D(xsu[t], ysu[t], zsu[t], color='yellow', label='Sun', s=25)
 ax.scatter3D(xsu, ysu, zsu, color='yellow', s=0.25)
+
+ax.scatter3D(tx, ty, tz, color='red', s=1)
 
 plt.title(f'Orbital Data of the Solar System')
 ax.view_init(elev=70, azim=-80)
