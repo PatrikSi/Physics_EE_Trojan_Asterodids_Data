@@ -17,7 +17,15 @@ earth = plt.Circle((ex, ey), 0.1, fill=False, label='Body 2')
 v_1 = plt.plot([0,sx], [0,sy], linestyle='-', label='v1', color='black')
 v_2 = plt.plot([0,ex], [0,ey], linestyle='-', label='v2', color='black')
 
-plt.plot([0], marker='x', label='Barycenter', color='black')
+bary = plt.plot([0], marker='o', label='Barycenter', color='black')
+
+L1 = plt.plot([0.8*ex], [0], marker='x', label='L1', color='black')
+L2 = plt.plot([1.2*ex], [0], marker='x', label='L2', color='black')
+L3 = plt.plot([1.7*sx], [0], marker='x', label='L3', color='black')
+L4 = plt.plot([0.8*ex], [0], marker='x', label='L4', color='black')
+L5 = plt.plot([0.8*ex], [0], marker='x', label='L5', color='black')
+
+
 
 ax.set_aspect(1)
 ax.add_artist(sun)
