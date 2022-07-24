@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 sx = -0.6
 sy = 0
@@ -7,7 +8,7 @@ ex = 1.5
 ey = 0
 
 figure, ax = plt.subplots()
-plt.xlim(-1.5, 3)
+plt.xlim(-2, 3)
 plt.ylim(-2, 2)
 
 
@@ -19,14 +20,17 @@ eo = plt.Circle((0, 0), ex, fill=False, label='Body 2 Orbit', linestyle='--')
 
 v_1 = plt.plot([0,sx], [0,sy], linestyle='-', label='v1', color='black')
 v_2 = plt.plot([0,ex], [0,ey], linestyle='-', label='v2', color='black')
+v_4 = plt.plot([0,(3/4)], [0,((3*np.sqrt(3))/4)], linestyle='-', label='v4', color='black')
+v_5 = plt.plot([0,(3/4)], [0,-((3*np.sqrt(3))/4)], linestyle='-', label='v5', color='black')
+
 
 bary = plt.plot([0], marker='o', label='Barycenter', color='black')
 
 L1 = plt.plot([0.8*ex], [0], marker='x', label='L1', color='black')
 L2 = plt.plot([1.2*ex], [0], marker='x', label='L2', color='black')
 L3 = plt.plot([1.7*sx], [0], marker='x', label='L3', color='black')
-L4 = plt.plot([0.6*ex], [0.7], marker='x', label='L4', color='black')
-L5 = plt.plot([0.6*ex], [-0.7], marker='x', label='L5', color='black')
+L4 = plt.plot([3/4], [(3*np.sqrt(3))/4], marker='x', label='L4', color='black')
+L5 = plt.plot([3/4], [-(3*np.sqrt(3))/4], marker='x', label='L5', color='black')
 
 
 
