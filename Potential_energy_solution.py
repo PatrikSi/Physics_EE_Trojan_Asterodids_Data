@@ -5,7 +5,7 @@ from matplotlib import cm
 M_s = 1988500*10**24
 M_j = 1898*10**24
 
-sc = 2
+sc = 1.5
 mu = (M_j/M_s)*10**sc
 R = 1
 sun_pos = np.array([-mu*R, 0])
@@ -32,5 +32,5 @@ plt.scatter([0], [0], c='black', marker='x')
 plt.axis('equal')
 plt.colorbar()
 plt.title(f'scale factor: {sc}, layers: {level}')
-plt.savefig(f'Potential_energy_plots/scale_{sc}_layers_{level}', dpi=300)
+# plt.savefig(f'Potential_energy_plots/scale_{sc}_layers_{level}', dpi=300)
 plt.show()
