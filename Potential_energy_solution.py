@@ -31,8 +31,5 @@ plt.scatter([0], [0], c='black', marker='x')
 plt.axis('equal')
 plt.colorbar()
 plt.title(f'scale factor: {sc}, layers: {level}')
+plt.savefig(f'Potential_energy_plots/scale_{sc}_layers_{level}', dpi=300)
 plt.show()
-if input('do you want to save? (y/n)') == 'y':
-    plt.savefig(f'Potential_energy_plots/scale_{sc}_layers_{level}', dpi=300)
-else:
-    pass
