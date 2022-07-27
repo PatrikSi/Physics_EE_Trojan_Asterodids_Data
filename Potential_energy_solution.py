@@ -5,7 +5,7 @@ from matplotlib import cm
 M_s = 1988500*10**24
 M_j = 1898*10**24
 
-sc = 3
+sc = 2
 mu = (M_j/M_s)*10**sc
 R = 1
 sun_pos = np.array([-mu*R, 0])
@@ -23,6 +23,7 @@ u = term1 + term2 + term3
 lw = 0.3
 level = 200
 plt.figure(figsize=(5, 5))
+plt.ylim(-1.5, 1.5)
 levels = np.linspace(-4, -1, level)
 plt.contour(x, y, u, levels=levels, cmap=cm.jet, linewidths=lw)
 plt.scatter([sun_pos[0]], [sun_pos[1]], c='y', s=50, label='Sun')
