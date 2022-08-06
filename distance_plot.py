@@ -1,10 +1,11 @@
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import math
 import time
 
-total = 500
+total = 1350
 
 times = [t for t in range(0, total)]
 print(times)
@@ -285,9 +286,13 @@ for t in times:
         print(f'Going through {t}/{total}. Batch time: {(time.time()-bstart)}. Total time: {(time.time() - start)}')
     trojan_average_positon()
 
+distace_dict = {'time': times, 'L4_distance': L4jd, 'L5_distnace': L5jd}
+frame = pd.DataFrame(distace_dict)
+frame.to_csv('Lagrange_Jupiter_distances')
+
 print(f'All {total} iterations done in time {(time.time()-start)}')
-plt.ylim(0, 10**10)
-plt.scatter(times, L4jd, label='L4', size=0.1)
-plt.scatter(times, L5jd, label='L5', size=0.1)
+plt.ylim(0, 10**9)
+plt.scatter(times, L4jd, label='L4', s=5)
+plt.scatter(times, L5jd, label='L5', s=5)
 plt.legend()
 plt.show()
