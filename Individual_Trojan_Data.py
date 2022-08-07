@@ -11,6 +11,8 @@ y = []
 z = []
 ax = plt.axes(projection="3d")
 
+JD = 0
+
 # All be started from 1800-01-01
 # Step size = 60 days
 # Coordinate center = Solar System Barycenter
@@ -20,7 +22,7 @@ ax = plt.axes(projection="3d")
 xj = []
 yj = []
 zj = []
-t = 68  # Time to show all the objects
+t = 12  # Time to show all the objects
 # JDTDB time to de determined by JDTDB = 2378496.5 + 60t
 
 with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as empherides:
@@ -378,6 +380,7 @@ for spkid in L5_spkid:
         troj5_x.append(x5[t])
         troj5_y.append(y5[t])
         troj5_z.append(z5[t])
+        JD = JDTDB[t]
 
 def trojan_average_positon():
     L4avgx = sum(troj4_x) / len(troj4_x)
@@ -465,7 +468,8 @@ ax.scatter3D(xsu, ysu, zsu, color='yellow', s=0.25)
 ax.scatter3D(tx4, ty4, tz4, color='red', s=1)
 ax.scatter3D(tx5, ty5, tz5, color='red', s=1)
 
-plt.title(f'Orbital Data of the Solar System')
+
+plt.title(f'Orbital Data of the Solar System at JD {round(float(JD),0)}')
 ax.view_init(elev=70, azim=-80)
 plt.legend()
 plt.show()

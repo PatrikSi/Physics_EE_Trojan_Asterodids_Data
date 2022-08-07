@@ -12,6 +12,8 @@ print(times)
 L4jd = []
 L5jd = []
 
+JD = 0
+
 start = time.time()
 
 for t in times:
