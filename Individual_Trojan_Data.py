@@ -22,7 +22,7 @@ JD = 0
 xj = []
 yj = []
 zj = []
-t = 12  # Time to show all the objects
+t = 48  # Time to show all the objects
 # JDTDB time to de determined by JDTDB = 2378496.5 + 60t
 
 with open('Planetary_Orbital_Data/Jupiter_position_data.txt', newline='') as empherides:
