@@ -290,7 +290,7 @@ for t in times:
 
 distace_dict = {'time': times, 'L4_distance': L4jd, 'L5_distnace': L5jd}
 frame = pd.DataFrame(distace_dict)
-frame.to_csv('Lagrange_Jupiter_distances')
+frame.to_csv('Lagrange_Jupiter_distances.txt')
 
 print(f'All {total} iterations done in time {(time.time()-start)}')
 plt.ylim(0, 10**9)
