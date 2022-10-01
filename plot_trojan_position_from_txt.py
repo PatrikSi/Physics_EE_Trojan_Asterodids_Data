@@ -1,19 +1,28 @@
 import matplotlib.pyplot as plt
+import csv
 
-with open('Planetary_Orbital_Data/Jupiter_position_data.txt') as jup:
-    lin = jup.readlines()
-    times_JD = [line.split()[0] for line in lin]
+JD_times = []
+L4 = []
+L5 = []
+times = []
 
-with open('Lagrange_Jupiter_distances.txt') as f:
-    lines = f.readlines()
-    print(lines)
-    L4 = [line[4] for line in lines]
-    L5 = [line[3] for line in lines]
+with open('Lagrange_Jupiter_distances.txt', newline='') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        JD_times.append(row['JD_time'])
+        L4.append(float(row['L4_distance']))
+        L5.append(float(row['L5_distnace']))
+        times.append(float(row['time']))
 
-print(times_JD)
+print(JD_times)
 print(L4)
 print(L5)
 
-plt.scatter(times_JD, L4)
+plt.scatter(times, L4, label='L4-Jupiter Distance')
+plt.scatter(times, L5, label='L5-Jupiter Distance')
+plt.legend()
+plt.ylim(0, 10**9)
+plt.ylabel("distance (m)")
+plt.xlabel("time (days)")
 
 plt.show()

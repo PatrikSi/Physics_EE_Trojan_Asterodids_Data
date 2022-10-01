@@ -9,6 +9,7 @@ total = 1350
 
 times = [t for t in range(0, total)]
 print(times)
+JD_times = []
 L4jd = []
 L5jd = []
 
@@ -41,6 +42,7 @@ for t in times:
         for row in reader:
             calendar_date.append(row['            Calendar Date (TDB)'])
             JDTDB.append(row['            JDTDB'])
+            JD_times.append(row['            JDTDB'])
             xj.append(float(row['                      X']))
             yj.append(float(row['                      Y']))
             zj.append(float(row['                      Z']))
@@ -198,13 +200,12 @@ for t in times:
             reader = csv.DictReader(empherides)
             for row in reader:
                 calendar_date.append(row['            Calendar Date (TDB)'])
-                JDTDB.append(row['            JDTDB'])
                 x4.append(float(row['                      X']))
                 y4.append(float(row['                      Y']))
                 z4.append(float(row['                      Z']))
                 # try:
                 #     xs.append(float(row['             X_s'])/float(row['                      X']))
-                #     ys.append(float(row['             Y_s'])/float(row['                      Y']))
+                #     ys.append(float(row['             Y_s'å])/float(row['                      Y']))
                 #     zs.append(float(row['             Z_s'])/float(row['                      Z']))
                 # except KeyError:
                 #     print('Missing uncertainty')
@@ -288,13 +289,17 @@ for t in times:
         print(f'Going through {t}/{total}. Batch time: {(time.time()-bstart)}. Total time: {(time.time() - start)}')
     trojan_average_positon()
 
-distace_dict = {'time': times, 'L4_distance': L4jd, 'L5_distnace': L5jd}
+print(len(times))
+print(len(JD_times[:total]))
+print(len(L5jd))
+print(len(L5jd))
+distace_dict = {'time': times, 'JD_time': JD_times[:total], 'L4_distance': L4jd, 'L5_distnace': L5jd}
 frame = pd.DataFrame(distace_dict)
 frame.to_csv('Lagrange_Jupiter_distances.txt')
 
 print(f'All {total} iterations done in time {(time.time()-start)}')
 plt.ylim(0, 10**9)
-plt.scatter(times, L4jd, label='L4', s=5)
-plt.scatter(times, L5jd, label='L5', s=5)
+plt.scatter(JD_times[:total], L4jd, label='L4', s=5)
+plt.scatter(JD_times[:total], L5jd, label='L5', s=5)
 plt.legend()
 plt.show()
