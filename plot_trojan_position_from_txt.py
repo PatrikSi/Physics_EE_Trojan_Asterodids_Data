@@ -18,8 +18,10 @@ print(JD_times)
 print(L4)
 print(L5)
 
-plt.scatter(times, L4, label='L4-Jupiter Distance')
-plt.scatter(times, L5, label='L5-Jupiter Distance')
+n = 200
+
+plt.scatter(times[:n], L4[:n], label='L4-Jupiter Distance')
+plt.scatter(times[:n], L5[:n], label='L5-Jupiter Distance')
 plt.legend()
 plt.ylim(0, 10**9)
 plt.ylabel("distance (m)")
